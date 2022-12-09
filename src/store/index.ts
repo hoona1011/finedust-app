@@ -7,7 +7,7 @@ import { dustSlice } from './slices/dustSlice';
 
 const store = configureStore({
   reducer: {
-    option: dustSlice.reducer,
+    dust: dustSlice.reducer,
     // [optionApi.reducerPath]: optionApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
