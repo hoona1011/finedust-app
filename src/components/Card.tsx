@@ -2,6 +2,8 @@ import React from 'react';
 import { useAppDispatch } from 'store';
 import { toggleFavorite } from 'store/slices/dustSlice';
 import dustGrader from 'utils/dustGrader';
+import gradeToColorConverter from 'utils/gradeToColorConverter';
+import { HeartIcon } from './Icons';
 
 interface CardProps {
   stationName: string;
@@ -26,15 +28,21 @@ function Card({
   };
 
   return (
-    <div>
-      <div>{stationName}</div>
-      <div>{sidoName}</div>
-      <div>PM10 등급 : {dustGrader(pm10Grade)}</div>
-      <div>PM10 미세먼지 수치: {pm10Value}</div>
-      <div>({dataTime} 기준)</div>
-      <button type="button" onClick={onFavoriteHandler}>
-        {isFavorite ? '✔✔✔✔✔✔✔✔' : '해제됨'}
+    <div className="m-[40px]  rounded-[24px] drop-shadow-2xl p-[50px] text-[20px] bg-[#FBFBFB] font-bold">
+      <button
+        type="button"
+        onClick={onFavoriteHandler}
+        className="absolute top-[20px] right-[20px]"
+      >
+        <HeartIcon isFavorite={isFavorite} />
       </button>
+      <div>{sidoName}</div>
+      <div>{stationName}</div>
+      <div className={`${gradeToColorConverter(pm10Grade)} text-[40px]`}>
+        {dustGrader(pm10Grade)}
+      </div>
+      <div>미세먼지 수치: {pm10Value}</div>
+      <div>({dataTime} 기준)</div>
     </div>
   );
 }
