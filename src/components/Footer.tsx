@@ -5,19 +5,10 @@ import { AllRegionsIcon, FavoritesIcon, MyRegionIcon } from './Icons';
 function Footer() {
   const navigate = useNavigate();
   return (
-    <div className="flex justify-between sticky top-0">
-      <MyRegionIcon onClick={() => navigate('my-region')} />
-      <AllRegionsIcon onClick={() => navigate('/')} />
-      <FavoritesIcon onClick={() => navigate('/favorites')} />
-      {/* <button type="button" onClick={() => navigate('my-region')}>
-        내 지역
-      </button>
-      <button type="button" onClick={() => navigate('/')}>
-        전체 지역
-      </button>
-      <button type="button" onClick={() => navigate('/favorites')}>
-        즐겨찾기
-      </button> */}
+    <div className="flex justify-center fixed bottom-0 w-[50%]">
+      <MyRegionIcon to="my-region" navigate={navigate} />
+      <AllRegionsIcon to="/" navigate={navigate} />
+      <FavoritesIcon to="/favorites" navigate={navigate} />
     </div>
   );
 }
