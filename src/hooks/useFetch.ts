@@ -2,11 +2,12 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { storeInfos } from 'store/slices/dustSlice';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function useFetch() {
   const [sido, setSido] = useState('서울');
   const [myRegion, setMyRegion] = useState('');
-
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const dustData = useAppSelector((state) => state.dust.dustInfos);
 
@@ -23,11 +24,19 @@ function useFetch() {
   }, [sido]);
 
   const getInfos = useCallback(async () => {
-    const res = await axios.get('/api', { params: dustParams });
-    const responseData = res?.data.response.body.items;
-    // setdustInfos(responseData);
-    dispatch(storeInfos(responseData));
-  }, [dustParams, dispatch]);
+    try {
+      const res = await axios.get('/api', {
+        params: dustParams,
+      });
+      const responseData = res?.data.response.body.items;
+      // setdustInfos(responseData);
+      dispatch(storeInfos(responseData));
+    } catch {
+      // eslint-disable-next-line no-alert
+      alert('네트워크 에러가 발생했습니다');
+      navigate('/');
+    }
+  }, [dustParams, dispatch, navigate]);
 
   useEffect(() => {
     getInfos();
