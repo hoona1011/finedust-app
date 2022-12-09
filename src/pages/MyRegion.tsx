@@ -2,22 +2,10 @@ import Selector from 'components/Selector';
 import React, { useMemo } from 'react';
 import sidoNames from 'constants/sidoNames';
 import Card from 'components/Card';
-import { DustInfo } from 'store/slices/dustSlice';
+import useFetch from 'hooks/useFetch';
 
-interface MyRegionProps {
-  sido: string;
-  setSido: React.Dispatch<React.SetStateAction<string>>;
-  dustData: DustInfo[];
-  myRegion: string;
-  setMyRegion: React.Dispatch<React.SetStateAction<string>>;
-}
-function MyRegion({
-  sido,
-  setSido,
-  dustData,
-  myRegion,
-  setMyRegion,
-}: MyRegionProps) {
+function MyRegion() {
+  const { sido, setSido, dustData, myRegion, setMyRegion } = useFetch();
   const myRegions = useMemo(() => {
     return dustData.map((data) => {
       return data.stationName;
@@ -32,8 +20,14 @@ function MyRegion({
 
   return (
     <>
-      <Selector regions={sidoNames} region={sido} setRegion={setSido} />
-      <Selector regions={myRegions} region={myRegion} setRegion={setMyRegion} />
+      <div className="flex justify-center">
+        <Selector regions={sidoNames} region={sido} setRegion={setSido} />
+        <Selector
+          regions={myRegions}
+          region={myRegion}
+          setRegion={setMyRegion}
+        />
+      </div>
 
       <div>
         {filteredDustData?.map((data) => {

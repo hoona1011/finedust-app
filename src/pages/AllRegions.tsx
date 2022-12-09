@@ -1,19 +1,12 @@
 import Card from 'components/Card';
 import Selector from 'components/Selector';
 import sidoNames from 'constants/sidoNames';
-import { DustInfo } from 'store/slices/dustSlice';
+import useFetch from 'hooks/useFetch';
 
-interface AllregionsProps {
-  sido: string;
-  setSido: React.Dispatch<React.SetStateAction<string>>;
-  dustData: DustInfo[];
-}
-function AllRegions({ sido, setSido, dustData }: AllregionsProps) {
+function AllRegions() {
+  const { sido, setSido, dustData } = useFetch();
   return (
     <>
-      <h1 className="pl-[40px] pt-[120px] pb-[136px] text-[64px] font-[rotobo]">
-        전체 지역 보기
-      </h1>
       <Selector regions={sidoNames} region={sido} setRegion={setSido} />
       <div>
         {dustData?.map((data) => {
