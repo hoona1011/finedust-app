@@ -1,10 +1,10 @@
-// interface IconProps {
+import { NavigateFunction } from 'react-router-dom';
 
-//   onClick:
-
-// }
-
-export function MyRegionIcon({ onClick }) {
+interface IconProps {
+  to: string;
+  navigate: NavigateFunction;
+}
+export function MyRegionIcon({ to, navigate }: IconProps) {
   return (
     <svg
       width="280"
@@ -12,7 +12,7 @@ export function MyRegionIcon({ onClick }) {
       viewBox="0 0 280 224"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
+      onClick={() => navigate(`${to}`)}
     >
       <g filter="url(#filter0_dd_0_1)">
         <rect x="16" y="16" width="224" height="168" rx="24" fill="#9BB4F6" />
@@ -80,7 +80,7 @@ export function MyRegionIcon({ onClick }) {
   );
 }
 
-export function AllRegionsIcon({ onClick }) {
+export function AllRegionsIcon({ to, navigate }: IconProps) {
   return (
     <svg
       width="280"
@@ -88,7 +88,7 @@ export function AllRegionsIcon({ onClick }) {
       viewBox="0 0 280 224"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
+      onClick={() => navigate(`${to}`)}
     >
       <g filter="url(#filter0_dd_0_1)">
         <rect x="16" y="16" width="224" height="168" rx="24" fill="#9BB4F6" />
@@ -156,7 +156,7 @@ export function AllRegionsIcon({ onClick }) {
   );
 }
 
-export function FavoritesIcon({ onClick }) {
+export function FavoritesIcon({ to, navigate }: IconProps) {
   return (
     <svg
       width="280"
@@ -164,7 +164,7 @@ export function FavoritesIcon({ onClick }) {
       viewBox="0 0 280 224"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
+      onClick={() => navigate(`${to}`)}
     >
       <g filter="url(#filter0_dd_0_1)">
         <rect x="16" y="16" width="224" height="168" rx="24" fill="#9BB4F6" />
@@ -228,6 +228,23 @@ export function FavoritesIcon({ onClick }) {
           />
         </filter>
       </defs>
+    </svg>
+  );
+}
+
+export function HeartIcon({ isFavorite }: { isFavorite: boolean }) {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 76 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.50852 37.748L33.9244 62.4068C35.0208 63.4299 36.4681 64 37.9738 64C39.4795 64 40.9267 63.4299 42.0231 62.4068L68.439 37.748C72.8831 33.6114 75.3975 27.8085 75.3975 21.7425V20.8947C75.3975 10.6775 68.0151 1.96584 57.9428 0.284899C51.2767 -0.825986 44.4937 1.35193 39.728 6.11704L37.9738 7.87107L36.2195 6.11704C31.4539 1.35193 24.6708 -0.825986 18.0047 0.284899C7.93246 1.96584 0.550049 10.6775 0.550049 20.8947V21.7425C0.550049 27.8085 3.06446 33.6114 7.50852 37.748Z"
+        fill={isFavorite ? '#D11919' : 'lightgray'}
+      />
     </svg>
   );
 }
