@@ -31,7 +31,7 @@ function useFetch() {
         params: dustParams,
       });
       const responseData = res?.data.response.body.items;
-      // setdustInfos(responseData);
+      setMyRegion(responseData[0].stationName);
       dispatch(storeInfos(responseData));
     } catch {
       // eslint-disable-next-line no-alert
