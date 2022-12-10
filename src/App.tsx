@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="w-[100%]  flex justify-center items-center ">
       <div className="w-[100%] max-w-[1024px] min-w-[400px]">
-        <div className="bg-gradient-to-b from-[white] to-[#EAF0FF] min-h-screen">
+        <div className="bg-gradient-to-t from-[white] to-[#EAF0FF] min-h-screen">
           <PageTitle pathName={pathName} />
           <Router />
         </div>
