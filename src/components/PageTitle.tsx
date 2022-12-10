@@ -14,7 +14,7 @@ function PageTitle({ pathName }: { pathName: string }) {
     }
   };
   return (
-    <div className="text-[40px] font-[rotobo] font-bold text-center my-[30px]">
+    <div className="text-[40px] font-[rotobo] font-bold text-center py-[30px]">
       {pathToTitle(pathName)}
     </div>
   );
