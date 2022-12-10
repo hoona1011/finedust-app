@@ -14,11 +14,11 @@ function Selector({ regions, region, setRegion }: SelectorProps) {
     [setRegion]
   );
   return (
-    <div className="relative w-full drop-shadow-xl px-[10px]">
+    <div className="relative w-[100%] drop-shadow-xl px-[30px]">
       <select
         value={region}
         onChange={onChangeHandler}
-        className="w-full p-2.5 text-[black] bg-white rounded-[10px] font-bold text-[20px]"
+        className="w-full p-2.5 text-[black] bg-white rounded-[10px] font-bold text-[20px] px-[20px]"
       >
         <option>지역 선택</option>
         {regions?.map((regionName: string) => (
