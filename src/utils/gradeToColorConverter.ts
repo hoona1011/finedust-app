@@ -5,7 +5,7 @@ const gradeToColorConverter = (gradeNumber: string) => {
     case '2':
       return 'text-[green]';
     case '3':
-      return 'text-[yellow]';
+      return 'text-[#FBBA04]';
     case '4':
       return 'text-[red]';
 
