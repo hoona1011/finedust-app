@@ -5,6 +5,8 @@ interface IconProps {
   navigate: NavigateFunction;
 }
 export function MyRegionIcon({ to, navigate }: IconProps) {
+  // onClick={() => navigate(`${to}`)}
+
   return (
     <svg
       width="280"

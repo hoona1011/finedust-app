@@ -28,7 +28,7 @@ function Card({
   };
 
   return (
-    <div className="m-[40px]  rounded-[24px] drop-shadow-2xl p-[50px] text-[20px] bg-[#FBFBFB] font-bold">
+    <div className="m-[40px] rounded-[24px] drop-shadow-2xl p-[50px] text-[20px] bg-[#FBFBFB] font-bold">
       <button
         type="button"
         onClick={onFavoriteHandler}
@@ -42,7 +42,7 @@ function Card({
         {dustGrader(pm10Grade)}
       </div>
       <div>미세먼지 수치: {pm10Value}</div>
-      <div>({dataTime} 기준)</div>
+      <div>({dataTime})</div>
     </div>
   );
 }
