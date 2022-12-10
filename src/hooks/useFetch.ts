@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function useFetch() {
   const [sido, setSido] = useState('서울');
   const [myRegion, setMyRegion] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const dustData = useAppSelector((state) => state.dust.dustInfos);
@@ -25,6 +26,7 @@ function useFetch() {
 
   const getInfos = useCallback(async () => {
     try {
+      setIsLoading(true);
       const res = await axios.get('/api', {
         params: dustParams,
       });
@@ -35,6 +37,8 @@ function useFetch() {
       // eslint-disable-next-line no-alert
       alert('네트워크 에러가 발생했습니다');
       navigate('/');
+    } finally {
+      setIsLoading(false);
     }
   }, [dustParams, dispatch, navigate]);
 
@@ -42,7 +46,7 @@ function useFetch() {
     getInfos();
   }, [getInfos, sido]);
 
-  return { sido, setSido, dustData, myRegion, setMyRegion };
+  return { sido, setSido, dustData, myRegion, setMyRegion, isLoading };
 }
 
 export default useFetch;

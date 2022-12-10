@@ -3,9 +3,11 @@ import React, { useMemo } from 'react';
 import sidoNames from 'constants/sidoNames';
 import Card from 'components/Card';
 import useFetch from 'hooks/useFetch';
+import Loading from 'components/Loading';
 
 function MyRegion() {
-  const { sido, setSido, dustData, myRegion, setMyRegion } = useFetch();
+  const { sido, setSido, dustData, myRegion, setMyRegion, isLoading } =
+    useFetch();
   const myRegions = useMemo(() => {
     return dustData.map((data) => {
       return data.stationName;
@@ -17,6 +19,10 @@ function MyRegion() {
       return data.stationName === myRegion;
     });
   }, [dustData, myRegion]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
