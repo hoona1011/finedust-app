@@ -4,7 +4,11 @@
 #   status = 200
 
 [[redirects]]
-  from = "/abc"
-  to = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty"
+  from = "/api/*"
+  to = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty/:splat"
   status = 200
   force = true
+
+
+
+# /B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty
