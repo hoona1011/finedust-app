@@ -27,9 +27,12 @@ function useFetch() {
   const getInfos = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get('/api', {
-        params: dustParams,
-      });
+      const res = await axios.get(
+        'https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
+        {
+          params: dustParams,
+        }
+      );
       const responseData = res?.data.response.body.items;
       setMyRegion(responseData[0].stationName);
       dispatch(storeInfos(responseData));
