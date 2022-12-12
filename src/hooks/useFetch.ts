@@ -27,7 +27,7 @@ function useFetch() {
   const getInfos = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get('/api', {
+      const res = await axios.get('/abc', {
         params: dustParams,
       });
       const responseData = res?.data.response.body.items;
