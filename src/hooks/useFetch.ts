@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { storeInfos } from 'store/slices/dustSlice';
 import axios from 'axios';
