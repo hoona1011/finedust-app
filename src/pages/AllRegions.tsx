@@ -2,10 +2,15 @@ import Card from 'components/Card';
 import Loading from 'components/Loading';
 import Selector from 'components/Selector';
 import sidoNames from 'constants/sidoNames';
-import useFetch from 'hooks/useFetch';
+import { DustInfo } from 'store/slices/dustSlice';
 
-function AllRegions() {
-  const { sido, setSido, dustData, isLoading } = useFetch();
+interface AllRegionsProps {
+  sido: string;
+  setSido: React.Dispatch<React.SetStateAction<string>>;
+  dustData: DustInfo[];
+  isLoading: boolean;
+}
+function AllRegions({ sido, setSido, dustData, isLoading }: AllRegionsProps) {
   if (isLoading) {
     return <Loading />;
   }

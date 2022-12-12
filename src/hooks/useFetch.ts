@@ -42,11 +42,15 @@ function useFetch() {
     }
   }, [dustParams, dispatch, navigate]);
 
-  useEffect(() => {
-    getInfos();
-  }, [getInfos, sido]);
-
-  return { sido, setSido, dustData, myRegion, setMyRegion, isLoading };
+  return {
+    sido,
+    setSido,
+    dustData,
+    myRegion,
+    setMyRegion,
+    isLoading,
+    getInfos,
+  };
 }
 
 export default useFetch;
