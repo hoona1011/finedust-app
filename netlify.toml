@@ -12,8 +12,8 @@
 
 [[redirects]]
   force = true
-  from = "https://starlit-frangollo-ff38a3.netlify.app/api/*"
-  to = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty/:splat"
+  from = "/api/*"
+  to = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty/:splat"
   status = 200
 
 [[redirects]]
