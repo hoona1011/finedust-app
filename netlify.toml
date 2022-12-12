@@ -3,7 +3,7 @@
   to = 'index.html'
   status = 200
 
-# [[redirects]]
-#   from = "/api/*"
-#   to = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty"
-#   status = 200
+[[redirects]]
+  from = "/api/*"
+  to = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty"
+  status = 200
