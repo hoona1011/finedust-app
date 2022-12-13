@@ -28,7 +28,7 @@ function Card({
   };
 
   return (
-    <div className="m-[40px] rounded-[24px] drop-shadow-2xl p-[50px] text-[24px] bg-[#FBFBFB] font-bold">
+    <div className="m-[40px] rounded-[24px] drop-shadow-2xl p-[40px] text-[24px] bg-[#FBFBFB] font-bold">
       <button
         type="button"
         onClick={onFavoriteHandler}
