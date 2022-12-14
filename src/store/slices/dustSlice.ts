@@ -16,6 +16,7 @@ interface DustInfos {
 const initialState: DustInfos = {
   dustInfos: [],
 };
+
 export const dustSlice = createSlice({
   name: 'dust',
   initialState,
@@ -23,7 +24,7 @@ export const dustSlice = createSlice({
     storeInfos(state, action) {
       const originalData = action.payload;
 
-      const refinedData = originalData.map((data: any) => {
+      const refinedData = originalData.map((data: DustInfo) => {
         const { stationName, sidoName, pm10Grade, pm10Value, dataTime } = data;
 
         return {
