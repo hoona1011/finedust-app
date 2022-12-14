@@ -5,10 +5,9 @@ interface IconProps {
   navigate: NavigateFunction;
 }
 export function MyRegionIcon({ to, navigate }: IconProps) {
-  // onClick={() => navigate(`${to}`)}
-
   return (
     <svg
+      className="cursor-pointer"
       width="280"
       height="224"
       viewBox="0 0 280 224"
@@ -85,6 +84,7 @@ export function MyRegionIcon({ to, navigate }: IconProps) {
 export function AllRegionsIcon({ to, navigate }: IconProps) {
   return (
     <svg
+      className="cursor-pointer"
       width="280"
       height="224"
       viewBox="0 0 280 224"
@@ -161,6 +161,7 @@ export function AllRegionsIcon({ to, navigate }: IconProps) {
 export function FavoritesIcon({ to, navigate }: IconProps) {
   return (
     <svg
+      className="cursor-pointer"
       width="280"
       height="224"
       viewBox="0 0 280 224"

@@ -18,7 +18,7 @@ function Selector({ regions, region, setRegion }: SelectorProps) {
       <select
         value={region}
         onChange={onChangeHandler}
-        className="w-full p-2.5 text-[black] bg-white rounded-[10px] font-bold text-[20px] px-[20px]"
+        className="w-full p-2.5 text-[black] bg-white rounded-[10px] font-bold text-[20px] px-[20px] cursor-pointer"
       >
         {regions?.map((regionName: string) => (
           <option key={regionName}>{regionName}</option>
